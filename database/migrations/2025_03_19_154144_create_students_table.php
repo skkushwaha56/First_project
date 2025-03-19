@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->integer('student_id');
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->unique()->nullable();
+            $table->float('percentage',3.2)->comment('student percentage');
             $table->primary('student_id');
-
-
+            $table->string('city')->default('No city');
+            $table->integer('age')->unsigned();
         });
     }
 
