@@ -12,13 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->integer('student_id');
-            $table->string('name');
-            $table->string('email')->unique()->nullable();
-            $table->float('percentage',3.2)->comment('student percentage');
-            $table->primary('student_id');
-            $table->string('city')->default('No city');
-            $table->integer('age')->unsigned();
+            $table->id();
+            $table->string('name',30);
+            $table->string('email',40)->nullable()->unique();
         });
     }
 
